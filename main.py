@@ -2,25 +2,20 @@ from primefactors import primes
 from primeslist import listOf1000Primes
 
 print("THE LEAST COMMON MULTIPLE (LCM) CALCULATOR")
-
-keepAsking = True
-while keepAsking:
+validInput = False
+while not validInput:
     LCMInputNumbers = input("Enter two or more integers to find the LCM (space-separated):\n")
 
     listOfLCMInputNumbers = LCMInputNumbers.split()
 
     for element in listOfLCMInputNumbers:
         if not element.isdigit():
-            keepAsking = True
+            validInput = False
         else:
-            keepAsking = False
-
+            validInput = True
 
 listOfLCMInputNumbers = [int(i) for i in listOfLCMInputNumbers]
-
 listOfLCMInputNumbers = list(dict.fromkeys(listOfLCMInputNumbers))
-
-
 resultListOfPrimeFactors = []
 primeFactorsDifference = 0
 
@@ -32,11 +27,9 @@ for k in listOfLCMInputNumbers:
           for j in range(0, primeFactorsDifference):
             resultListOfPrimeFactors.append(i)
 
-
 LCMResult = 1
 
 for i in resultListOfPrimeFactors:
     LCMResult = LCMResult * i
-
 
 print(f"The LCM of " + str(listOfLCMInputNumbers) + " is {:,}.".format(LCMResult))
