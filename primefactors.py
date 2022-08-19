@@ -1,12 +1,12 @@
 def primes(n):
-    primeFactorList = []
+    prime_factor_list = []
     d = 2
     while d*d <= n:
         while (n % d) == 0:
-            primeFactorList.append(d)
+            prime_factor_list.append(d)
             n //= d
         d += 1
     if n > 1:
-       primeFactorList.append(n)
-    return primeFactorList
+       prime_factor_list.append(n)
+    return prime_factor_list
 
